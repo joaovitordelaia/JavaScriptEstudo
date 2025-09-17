@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Consumo de API no JS</title>
+
+    </head>
+    <body>
+
+        <button id="load">Carregar Usuarios</button>
+        <ul id="lista"></ul>
+
+
+        <script>
+            //objetificando os elementos do html o botão e a lista pai
+            const btn = document.getElementById("load");
+            const listaUl = document.getElementById("lista");
+
+            // quando o botão se clicado sera feito a execução do metodo carregarPosts
+            btn.addEventListener("click", carregarUsuarios);
+
+            async function carregarUsuarios() {
+
+                //place holder da lista
+                listaUl.innerHTML = '<li>Loding....</li>';
+
+                try{
+                    //request da api 
+                    const resp = await fetch('https://jsonplaceholder.typicode.com/users?_limit=5');
+
+                    //Em caso da resposta não foi positiva, ira exbir o erro ao usuario.
+                    if (!resp.ok) throw new Error('http ' + resp.status);
+                    
+                    //Caso de resposta positiva ela sera transformada em objeto com o metodo json().
+                    const posts = await resp.json();
+                     
+                    //Aqui a variavel itens ira receber cada post recebido da API junto a uma formatação em HTML.
+                    const itens = posts.map(p => 
+                            // o P aqui ira ter o elementos da propria resposta da API o Body e Title
+                            // abrindo o link ou a resposta conseguimos ver essas propriedades no json
+                        `<li><strong>${p.name}</strong><br>${p.username}<br>${p.email}<br>${p.address.street}<br>${p.address.zipcode}</li>`
+                        // o join aqui serve para por algum elemento separando os itens de uma variavel
+                    ).join('<br>');// como ele está vazio não ira trazer nada
+
+                    // insersão dos elementos recebido e inserido no itens na lista pai
+                    listaUl.innerHTML = itens;
+                } catch(err){
+                        //em caso de erro da API, ira apresentar o elemento abaixo na lista pai
+                       listaUl.innerHTML = '<li style="color:red">Erro: ${err.message}</li>'; 
+
+                }
+            }
+        </script> 
+    </body>
+</html>

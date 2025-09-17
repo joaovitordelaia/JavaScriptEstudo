@@ -1,0 +1,39 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color:#f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.conteiner{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    width: 80%;
+}
+
+.blocos{
+    background-color:#4CAF50;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px Orgba(0, 0, 0, 0.1);
+}
+
+.opacity-100{
+    opacity: 1;
+}
+.opacity-75{
+    opacity: 0.75;
+}
+.opacity-50{
+    opacity: 0.50;
+}
+.opacity-25{
+    opacity: 0.25;
+}

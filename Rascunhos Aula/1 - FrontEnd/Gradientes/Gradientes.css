@@ -1,0 +1,42 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color:#f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.conteiner{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    width: 80%;
+}
+
+.gradient-exemple{
+    background-color:#4CAF50;
+    padding: 20px;
+    text-align: center;
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px Orgba(0, 0, 0, 0.1);
+}
+
+.linear-gradient{
+    background:  linear-gradient(90deg,#FF0066,#4FB7B3);
+}
+.radial-gradient{
+    background:  radial-gradient(circle,#FF0066,#4FB7B3);
+}
+.diagonal-gradient{
+    background:  linear-gradient(45deg, #ff0000, #0000ff);
+    width: 300px;
+    height: 300px;
+    border-radius: 50px;
+}
+.conic-gradient{
+    background:  conic-gradient(from 0deg,#FF0066,#4FB7B3);
+}

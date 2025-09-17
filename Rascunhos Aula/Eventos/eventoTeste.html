@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="styleSheet" href="styleSheet.css">
+        <title>Eventos no JS</title>
+
+    </head>
+    <body>
+        <div id="header">
+            <h1 id="title"> Bem vindo a pagina de teste de eventos</h1>
+        </div>
+
+            <button id="btnEvent">Clique aqui!</button>
+
+        <script>
+        const btnEventClick = document.getElementById("btnEvent");
+        
+        const headerDiv = document.getElementById("header");
+            headerDiv.style.display = "flex";// o pai precisa ter seu alinhamento pro filho tbm ter
+            headerDiv.style.flexDirection = "column";
+
+        const h2B4Title = document.createElement("h2");
+            h2B4Title.style.color = "#D3DAD9";
+            h2B4Title.style.alignSelf  = "center";
+            //h2B4Title.style.alignSelf  = "start";
+            //h2B4Title.style.alignSelf  = "end";
+
+        let increment = 1;
+
+        btnEventClick.addEventListener("click", () => {
+
+            h2B4Title.innerText = "Clicou aqui " + increment++ + "ª vezes";
+            headerDiv.appendChild(h2B4Title);
+        });
+        </script> 
+    </body>
+</html>
